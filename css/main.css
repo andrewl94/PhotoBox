@@ -1,0 +1,178 @@
+html, body{
+    height: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+}
+body{
+    margin: 0;
+}
+
+/* BUTTONS */
+button{
+    font-family: Helvetica, Arial, sans-serif;
+}
+.imputfile{
+    display: none;
+}
+label{
+    display: inline-block;
+
+    background-color: rgb(219,21,99);
+}
+label:hover {
+    background-color: rgb(158, 22, 76);
+}
+label, #btnValid{
+    font-size: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #ffffff;
+
+    padding: 16px 0;
+    min-width: 300px;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+}
+#btnValid{
+    background-color: #00ccbc;
+}
+#btnValid:hover{
+    background-color: #00c2b3;
+}
+#uploadOk{
+    display: none;
+}
+#uploadOk > i {
+    color: #00ccbc;
+    font-size: 64px;
+}
+#uploadOk > p {
+    margin-top: 40px;
+}
+#newImg{
+    color: rgb(219,21,99);
+    text-decoration: underline;
+    cursor: pointer;
+}
+#newImg:hover{
+    text-decoration: none;
+    color: rgb(158, 22, 76);
+}
+/* END BUTTONS */
+
+
+
+/* PREVIEW */
+#preview_container{
+    margin-bottom: 20px;
+}
+#imageSet_container{
+    display: none;
+}
+#imageToUpload{
+    padding-bottom: 10px;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+#changeImg{
+    color: #383838;
+    font-style: italic;
+    text-decoration: underline;
+    cursor: pointer;
+}
+#changeImg:hover{
+    text-decoration: none;
+    color: #004cf7;
+}
+/* END PREVIEW */
+
+/**/
+#background_container{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-image: url('../images/background.jpg');
+    background-attachment:fixed;
+}
+#main_container{
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(43, 43, 43, 0.8);
+}
+#form_container{
+    width: 70%;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 50px 30px;
+}
+form{
+    width: 100%;
+    text-align: center;
+}
+h1{
+    display: block;
+    font-size: 39px;
+    color: #333;
+    line-height: 1.2;
+    
+    padding-bottom: 45px;
+    margin-top: 0;
+}
+form > i{
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: #333;
+}
+#loader{
+    width: 100%;
+    height: 100px;
+    display: none;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url('../images/loader.gif');
+}
+#uploadOk{
+
+}
+/**/
+
+/**/
+@media screen and (max-width: 450px) {
+    #form_container{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 350px) {
+    #form_container{
+        padding: 50px 0;
+    }
+}
+@media screen and (max-width: 300px) {
+    h1{
+        font-size: 25px;
+    }
+    form > i {
+        font-size: 40px;
+    }
+    label, #btnValid, #newImg, #changeImg{
+        font-size: 15px;
+    }
+    #uploadOk p{
+        font-size: 12px;
+    }
+    button, label{
+        width: 100%;
+        min-width: 0px!important;
+    }
+}
+/**/
