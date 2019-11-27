@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>PhotoBox</title>
+    <script type="text/javascript" src="./Dist/js/jquery-3.4.1.min.js" ></script>
+    <link rel='icon' href='./Dist/images/favicon.ico' type='image/x-icon'/>
+    <link rel="stylesheet" href="./Dist/css/fontawesome-5.9.0/css/all.min.css">
+    <link rel="stylesheet" href="./Dist/css/jquery-confirm.min.css">
+    <link rel="stylesheet" href="./Dist/css/main.css">
+    <style media="screen">
+      /*.delete{
+        color: red;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      li, a{
+        font-size: 24px;
+      }
+      a{
+        padding-left:10px;
+      }
+      li:hover{
+        font-weight: bold;
+      }
+      ul{
+        list-style-type: decimal;
+      }*/
+    </style>
+  </head>
+  <body>
+    <div id="background_container">
+        <div id="main_container">
+            <div id="form_container">
+                <form>
+                    <i class="fas fa-camera"></i>
+                    <h1>PhotoBox</h1>
+                    <div id="input_container">
+                        <input type="file" name="file" class="imputfile" id="fileInput" accept='image/*' />
+                        <label for="fileInput">
+                            <span>Choisir une image</span>
+                        </label>
+                    </div>
+
+                    <div id="imageSet_container">
+                        <div id="preview_container">
+                            <img id="imageToUpload" />
+                            <a id="changeImg">Changer d'image</a>
+                        </div>
+
+                        <button type="submit" id="btnValid"><span>Envoyer l'image</span></button>
+                    </div>
+
+                    <div id="loader"></div>
+
+                    <div id="uploadOk">
+                        <i class="fas fa-check-circle"></i>
+                        <p>
+                            Votre image a bien été envoyée sur le PhotoBox. Veuillez patienter quelques instants et vous pourrez la voir à l'écran.
+                        </p>
+                        <a id="newImg">Envoyer une nouvelle image</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./Dist/js/jquery-confirm.min.js" ></script>
+    <script type="text/javascript" src="./Dist/js/main.js?<?php echo APP_VERSION;?>" ></script>
+
+    <script src="../socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      //var socket = io.connect('http://localhost:8080');
+
+      /*$('#add').click(function () {
+        var task = new Object();
+        task.index = $('#todoList').children('.one_task').length;
+        task.text = $('#task').val();
+        socket.emit('add_task', task);
+
+        addTask(task);
+
+        $('.delete').unbind('click').click(function () {
+            removeTask($(this).data('index'));
+        });
+
+        $('#task').val("");
+      });
+
+      socket.on('add_task', function(task) {
+          addTask(task);
+
+          $('.delete').unbind('click').click(function () {
+            removeTask($(this).data('index'));
+          });
+      });
+
+      socket.on('get_todoList', function(todolist) {
+          $(todolist).each(function(){
+            addTask(this);
+          });
+      });
+
+      function addTask(task){
+        var html = '<li class="one_task task_' + task.index + '">' + task.text + '<a class="delete" data-index="' + task.index + '">✘</a></li>';
+        $('#todoList').append(html);
+      }*/
+
+    </script>
+  </body>
+</html>
