@@ -2,10 +2,14 @@
     "name": "photobox",
     "version": "1.0.0",
     "dependencies": {
-        "express": "~3.3.4",
-        "socket.io": "~1.2.1",
+        "ejs": "~0.8.3",
         "ent": "~0.1.0",
-        "ejs": "~0.8.3"
+        "express": "~3.3.4",
+        "file-system": "~2.2.2",
+        "formidable": "^1.2.1",
+        "fs": "0.0.1-security",
+        "path": "^0.12.7",
+        "socket.io": "~1.2.1"
     },
     "author": "Gauvrit Alexis <alexis.gauvrit.85@email.com>",
     "description": ""

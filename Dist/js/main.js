@@ -105,7 +105,7 @@ $(document).ready(function () {
         $('#loader').show();
 
         $.ajax({
-            url: './includes/callback.php',
+            url: '/sendImage',
             type: 'POST',
             data: oFormData,
             contentType: false,
@@ -115,13 +115,13 @@ $(document).ready(function () {
             },
             success: function (data, status) {
                 $('#loader').hide();
-                if(data==1){
+                if(data){
                     $('#uploadOk').show();
                 }
                 else{
                     $.alert({
                         title: "Erreur",
-                        content: data,
+                        content: "Une erreur est survenue lors de l'envoie. Veuillez réessayer ultérieurement.",
                         type: "red",
                         useBootstrap: false,
                         typeAnimated: true,
@@ -132,6 +132,7 @@ $(document).ready(function () {
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 $('#loader').hide();
+                $('#changeImg').trigger('click');
                 alert(textStatus);
             }
         });

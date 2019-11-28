@@ -102,7 +102,7 @@ label, #btnValid,#btnAddComment{
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    background-image: url('images/background.jpg');
+    background-image: url('../images/background.jpg');
     background-attachment:fixed;
 }
 #main_container{
@@ -147,7 +147,7 @@ form > i{
 
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url('images/loader.gif');
+    background-image: url('../images/loader.gif');
 }
 #uploadOk{
 
@@ -184,3 +184,31 @@ form > i{
     }
 }
 /**/
+
+
+
+
+
+/**/
+#logo_like{
+    padding: 20px;
+    padding-right: 10px;
+    text-align: right;
+    color:white;
+}
+#logo_like h1{
+    font-size: 14px;
+    display: inline-block;
+    padding: 0;
+    color:white;
+}
+#slideshow_container{
+    height: 100%;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+}
+#logo_like > span{
+    padding: 10px;
+    background-color: black;
+    opacity: 0.5;
+}
