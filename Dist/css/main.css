@@ -21,7 +21,7 @@ label{
 label:hover {
     background-color: rgb(158, 22, 76);
 }
-label, #btnValid{
+label, #btnValid,#btnAddComment{
     font-size: 25px;
     font-weight: 700;
     cursor: pointer;
@@ -37,6 +37,14 @@ label, #btnValid{
     background-color: #00ccbc;
 }
 #btnValid:hover{
+    background-color: #00c2b3;
+}
+
+#btnAddComment{
+    margin-top:20px;
+    background-color: #00ccbc;
+}
+#btnAddComment:hover{
     background-color: #00c2b3;
 }
 #uploadOk{
@@ -94,7 +102,7 @@ label, #btnValid{
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    background-image: url('../images/background.jpg');
+    background-image: url('images/background.jpg');
     background-attachment:fixed;
 }
 #main_container{
@@ -139,7 +147,7 @@ form > i{
 
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url('../images/loader.gif');
+    background-image: url('images/loader.gif');
 }
 #uploadOk{
 

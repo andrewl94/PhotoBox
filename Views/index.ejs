@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>PhotoBox</title>
-    <script type="text/javascript" src="./Dist/js/jquery-3.4.1.min.js" ></script>
-    <link rel='icon' href='./Dist/images/favicon.ico' type='image/x-icon'/>
-    <link rel="stylesheet" href="./Dist/css/fontawesome-5.9.0/css/all.min.css">
-    <link rel="stylesheet" href="./Dist/css/jquery-confirm.min.css">
-    <link rel="stylesheet" href="./Dist/css/main.css">
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>
+    <link rel='icon' href='images/favicon.ico' type='image/x-icon'/>
+    <link rel="stylesheet" href="css/fontawesome-5.9.0/css/all.min.css">
+    <link rel="stylesheet" href="css/jquery-confirm.min.css">
+    <link rel="stylesheet" href="css/main.css">
     <style media="screen">
       /*.delete{
         color: red;
@@ -60,52 +60,15 @@
                         </p>
                         <a id="newImg">Envoyer une nouvelle image</a>
                     </div>
+
+                    <button id="btnAddComment"><span>Envoyer un message</span></button>
                 </form>
             </div>
         </div>
     </div>
 
-    <script type="text/javascript" src="./Dist/js/jquery-confirm.min.js" ></script>
-    <script type="text/javascript" src="./Dist/js/main.js?<?php echo APP_VERSION;?>" ></script>
-
+    <script type="text/javascript" src="js/jquery-confirm.min.js" ></script>
     <script src="../socket.io/socket.io.js"></script>
-    <script type="text/javascript">
-      //var socket = io.connect('http://localhost:8080');
-
-      /*$('#add').click(function () {
-        var task = new Object();
-        task.index = $('#todoList').children('.one_task').length;
-        task.text = $('#task').val();
-        socket.emit('add_task', task);
-
-        addTask(task);
-
-        $('.delete').unbind('click').click(function () {
-            removeTask($(this).data('index'));
-        });
-
-        $('#task').val("");
-      });
-
-      socket.on('add_task', function(task) {
-          addTask(task);
-
-          $('.delete').unbind('click').click(function () {
-            removeTask($(this).data('index'));
-          });
-      });
-
-      socket.on('get_todoList', function(todolist) {
-          $(todolist).each(function(){
-            addTask(this);
-          });
-      });
-
-      function addTask(task){
-        var html = '<li class="one_task task_' + task.index + '">' + task.text + '<a class="delete" data-index="' + task.index + '">✘</a></li>';
-        $('#todoList').append(html);
-      }*/
-
-    </script>
+    <script type="text/javascript" src="js/main.js" ></script>
   </body>
 </html>
