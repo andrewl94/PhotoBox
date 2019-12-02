@@ -20,8 +20,10 @@ app.get('/', function(req, res) {
 app.get('/slideshow', function(req, res) { 
     res.render('slideshow.ejs');
 })
+app.get('/addComment', function(req, res) { 
+    res.render('addComment.ejs');
+})
 app.post('/sendImage', function(req, res) { 
-    console.log("sendImage");
     var form = new formidable.IncomingForm();
     form.parse(req, function (err, fields, files) {
       // oldpath : temporary folder to which file is saved to
@@ -79,8 +81,10 @@ io.sockets.on('connection', function (socket) {
         socket.broadcast.emit('user_join', ent.encode(pseudo));
     });
 
-    socket.on('add_new', function (comment) {
-        commentList.push(ent.encode(comment));
-        socket.broadcast.emit('add_new', ent.encode(comment));
+    socket.on('add_new', function (commentObj) {
+        commentObj.pseudo = ent.encode(commentObj.pseudo);
+        commentObj.comment = ent.encode(commentObj.comment);
+        commentList.push(commentObj);
+        socket.broadcast.emit('add_new', commentObj);
     });
 });

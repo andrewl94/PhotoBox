@@ -1,4 +1,4 @@
-html, body{
+html, body, input, textarea{
     height: 100%;
     font-family: Helvetica, Arial, sans-serif;
 }
@@ -21,7 +21,7 @@ label{
 label:hover {
     background-color: rgb(158, 22, 76);
 }
-label, #btnValid,#btnAddComment{
+label, #btnValid,#btnAddComment,#btnNewComment{
     font-size: 25px;
     font-weight: 700;
     cursor: pointer;
@@ -42,11 +42,23 @@ label, #btnValid,#btnAddComment{
 
 #btnAddComment{
     margin-top:20px;
-    background-color: #00ccbc;
+    background-color: #9f9f9f;
 }
 #btnAddComment:hover{
-    background-color: #00c2b3;
+    background-color: #6d6d6d;
 }
+#btnNewComment{
+    width: 71%;
+    background-color: rgb(219,21,99);
+}
+#btnNewComment:hover{
+    background-color: rgb(158, 22, 76);
+}
+#btnNewComment:disabled{
+    background-color: #9f9f9f;
+    cursor:not-allowed;
+}
+
 #uploadOk{
     display: none;
 }
@@ -205,10 +217,87 @@ form > i{
 #slideshow_container{
     height: 100%;
     background-repeat: no-repeat!important;
-    background-size: cover!important;
+    background-size: contain!important;
+    background-position: center!important;
+    background-color: #323232;
 }
 #logo_like > span{
     padding: 10px;
     background-color: black;
-    opacity: 0.5;
+    opacity: 0.9;
+}
+#comment_container{
+    border-radius: 20px;
+    opacity: 0.9;
+    background: white;
+    width: 70%;
+    min-height: 50px;
+    margin:20px auto;
+}
+#comment_container > p{
+    text-align: center;
+    padding: 16px 0;
+}
+#footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+/**/
+.inputText{
+    display:inline-block;
+    margin:10px auto;
+    width: 70%;
+    max-width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding:10px 5px;
+    margin-left:-5px;
+}
+.btnBlock{
+    display:block;
+    margin:0 auto;
+    margin-bottom: 15px;
+}
+#goBackLink{
+    color: #007bff;
+    text-decoration: none;
+}
+#goBackLink:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+
+
+
+#alert_container{
+    width:72%;
+    margin:0 auto;
+    margin-bottom: 20px;
+    padding: 30px 0;
+    background-color: #9f9f9f;
+    border-radius: 15px;
+}
+
+#alert_container > img{
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 20px 0 0;
+}
+
+#alert_container > p {
+    display: inline-block;
+    vertical-align: middle;
+    color: white;
+    font-weight: bold;
 }

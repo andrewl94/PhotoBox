@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>PhotoBox - Ajouter un commentaire</title>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>
+    <link rel='icon' href='images/favicon.ico' type='image/x-icon'/>
+    <link rel="stylesheet" href="css/fontawesome-5.9.0/css/all.min.css">
+    <link rel="stylesheet" href="css/jquery-confirm.min.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <div id="background_container">
+        <div id="main_container">
+            <div id="form_container">
+                <form>
+                    <i class="fas fa-camera"></i>
+                    <h1>PhotoBox</h1>
+
+                    <h2>Ajouter un commentaire</h2>
+
+                    <div id="alert_container">
+                      <img src="images/check.gif" width="50" />
+                      <p>Votre commentaire a été ajouté. Vous le verrez bientôt apparaitre à l'écran.</p>
+                    </div>
+                    
+                    <div id="form_comment_container">
+                      <input type="text" class="inputText" id="pseudo" placeholder="Votre pseudo"/>
+
+                      <textarea id="comment" class="inputText" placeholder="Votre message"></textarea>
+                      
+                      <button id="btnNewComment" class="btnBlock" disabled><span>Envoyer le commentaire</span></button>
+                    </div>
+                    
+                    <a href=".." id="goBackLink">Retour à l'accueil</a>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-confirm.min.js" ></script>
+    <script src="../socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/addComment.js" ></script>
+  </body>
+</html>
+
