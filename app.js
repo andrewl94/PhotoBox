@@ -1,6 +1,9 @@
 var express = require('express');
 var app = express();
-var server = app.listen(80);
+
+const port = process.env.PORT || 3000;
+var server = app.listen(port);
+
 var ent = require('ent'); // Permet de bloquer les caractères HTML (sécurité équivalente à htmlentities en PHP)
 var io = require('socket.io').listen(server);
 var fs = require('fs');// Gestion des fichiers
@@ -8,7 +11,7 @@ var formidable = require('formidable');//formulaire
 var path = require('path');//path
 
 var commentList = [];
-var upload_path = "D:\\Alexis\\Images\\WallPaper\\";
+var upload_path = "FAKE/PATH/";
 
 /* Gestion static : CSS / JS / iMAGES */
 app.use(express.static('Dist'));
@@ -28,7 +31,12 @@ app.post('/sendImage', function(req, res) {
     form.parse(req, function (err, fields, files) {
       // oldpath : temporary folder to which file is saved to
       var oldpath = files.file.path;
-      var newpath = upload_path + files.file.name;
+      // Count number of files in the folder
+      var nbFiles = 0;
+      fs.readdir(upload_path, (err, files) => {
+        nbFiles = files.length;
+      });
+      var newpath = upload_path + "photo_" + nbFiles + "_" + files.file.name;
       // copy the file to a new location
       fs.rename(oldpath, newpath, function (err) {
           if(err){
