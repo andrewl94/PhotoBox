@@ -27,32 +27,36 @@ app.get('/addComment', function(req, res) {
     res.render('addComment.ejs');
 })
 app.post('/sendImage', function(req, res) { 
-    var form = new formidable.IncomingForm();
-    form.parse(req, function (err, fields, files) {
-      // oldpath : temporary folder to which file is saved to
-      var oldpath = files.file.path;
-      // Count number of files in the folder
-      var nbFiles = 0;
-      fs.readdir(upload_path, (err, files) => {
-        nbFiles = files.length;
-      });
-      var newpath = upload_path + "photo_" + nbFiles + "_" + files.file.name;
-      // copy the file to a new location
-      fs.rename(oldpath, newpath, function (err) {
-          if(err){
-            res.send(false);
-          }
-          else{
-            res.send(true);
-          }
-      });
-    });
+        var form = new formidable.IncomingForm();
+        form.parse(req, function (err, fields, files) {
+            // oldpath : temporary folder to which file is saved to
+            var oldpath = files.file.path;
+            // Count number of files in the folder
+            var nbFiles = 0;
+            fs.readdir(upload_path, (err, files) => {
+                if(err){
+                    res.send(false);
+                }
+                nbFiles = files.length;
+            });
+            var newpath = upload_path + "photo_" + nbFiles + "_" + files.file.name;
+                // copy the file to a new location
+                fs.rename(oldpath, newpath, function (err) {
+                    if(err){
+                        res.send(false);
+                    }
+                    else{
+                        res.send(true);
+                    }
+                });
+            
+        });
 })
 app.post('/getRandomImage', function(req, res) {
     fs.readdir(upload_path, function (err, files) {
         //handling error
         if (err) {
-            res.send('Unable to scan directory: ' + err);
+            res.status(500).send('Unable to scan directory: ' + err);
         }
         var rand = Math.floor(Math.random() * (files.length) );
         

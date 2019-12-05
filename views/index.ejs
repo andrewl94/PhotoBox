@@ -21,6 +21,8 @@
                         <label for="fileInput">
                             <span>Choisir une image</span>
                         </label>
+
+                        <button type="button" id="btnAddComment"><span>Envoyer un message</span></button>
                     </div>
 
                     <div id="imageSet_container">
@@ -35,14 +37,12 @@
                     <div id="loader"></div>
 
                     <div id="uploadOk">
-                        <i class="fas fa-check-circle"></i>
-                        <p>
-                            Votre image a bien été envoyée sur le PhotoBox. Veuillez patienter quelques instants et vous pourrez la voir à l'écran.
-                        </p>
+                        <div id="alert_container" style="">
+                            <img src="images/check.gif" width="50">
+                            <p>Votre image a bien été envoyée sur le PhotoBox. Veuillez patienter quelques instants et vous pourrez la voir à l'écran.</p>
+                        </div>
                         <a id="newImg">Envoyer une nouvelle image</a>
                     </div>
-
-                    <button type="button" id="btnAddComment"><span>Envoyer un message</span></button>
                 </form>
             </div>
         </div>

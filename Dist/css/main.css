@@ -41,6 +41,9 @@ label, #btnValid,#btnAddComment,#btnNewComment{
 }
 
 #btnAddComment{
+    display: block;
+    margin: 10px auto 0;
+
     margin-top:20px;
     background-color: #9f9f9f;
 }
@@ -296,6 +299,7 @@ form > i{
 }
 
 #alert_container > p {
+    max-width: 95%;
     display: inline-block;
     vertical-align: middle;
     color: white;

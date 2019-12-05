@@ -72,7 +72,6 @@ $(document).ready(function () {
                 return data;
             },
             success: function (data, status) {
-                $('#loader').hide();
                 if(data){
                     $('#uploadOk').show();
                 }
@@ -89,9 +88,18 @@ $(document).ready(function () {
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                $('#loader').hide();
+                $.alert({
+                    title: "Erreur",
+                    content: "Une erreur est survenue lors de l'envoie. Veuillez réessayer ultérieurement.",
+                    type: "red",
+                    useBootstrap: false,
+                    typeAnimated: true,
+                    scrollToPreviousElement: false
+                });
                 $('#changeImg').trigger('click');
-                console.log(XMLHttpRequest);
+            },
+            complete: function(){
+                $('#loader').hide();
             }
         });
         
