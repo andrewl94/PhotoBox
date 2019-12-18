@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-You need a config.json file like that :
+You need to create a config.json file like that (you have to complete with your data) :
 
 ```
 {
@@ -42,23 +42,19 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+* [NodeJS](https://nodejs.org/)
+* [NPM](https://www.npmjs.com/)
+* [Express](https://expressjs.com/)
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/alexisgauvrit/PhotoBox/tags). 
 
 ## Authors
 
-* **Alexis Gauvrit** - *Initial work* - [PurpleBooth](https://github.com/alexisgauvrit)
+* **Alexis Gauvrit** - *Initial work* - [alexisgauvrit](https://github.com/alexisgauvrit)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/alexisgauvrit/PhotoBox/graphs/contributors) who participated in this project.
 
 ## License
 
