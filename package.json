@@ -1,6 +1,21 @@
 {
     "name": "photobox",
-    "version": "1.0.0",
+    "version": "2.0.0",
+    "description": "",
+    "author": "Gauvrit Alexis <alexis.gauvrit.85@email.com>",
+    "license": "MIT",
+    "homepage": "https://github.com/alexisgauvrit/PhotoBox#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/alexisgauvrit/PhotoBox.git"
+    },
+    "bugs": {
+        "url": "https://github.com/alexisgauvrit/PhotoBox/issues"
+    },
+    "engines": {
+        "npm": ">=6.12.1",
+        "node": ">=12.13.0"
+    },
     "dependencies": {
         "ejs": "~0.8.3",
         "ent": "~0.1.0",
@@ -10,7 +25,5 @@
         "fs": "0.0.1-security",
         "path": "^0.12.7",
         "socket.io": "~1.2.1"
-    },
-    "author": "Gauvrit Alexis <alexis.gauvrit.85@email.com>",
-    "description": ""
+    }
 }

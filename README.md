@@ -2,7 +2,7 @@
 
 One Paragraph of project description goes here
 
-## Getting Started
+## :rocket: Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
@@ -36,11 +36,11 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo
 
-## Deployment
+## :pencil2: Deployment
 
 Add additional notes about how to deploy this on a live system
 
-## Built With
+## :computer: Built With
 
 * [NodeJS](https://nodejs.org/)
 * [NPM](https://www.npmjs.com/)
@@ -50,12 +50,12 @@ Add additional notes about how to deploy this on a live system
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/alexisgauvrit/PhotoBox/tags). 
 
-## Authors
+## :bust_in_silhouette: Authors
 
 * **Alexis Gauvrit** - *Initial work* - [alexisgauvrit](https://github.com/alexisgauvrit)
 
 See also the list of [contributors](https://github.com/alexisgauvrit/PhotoBox/graphs/contributors) who participated in this project.
 
-## License
+## :scroll: License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
