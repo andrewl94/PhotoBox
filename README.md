@@ -22,7 +22,7 @@ git clone "https://github.com/alexisgauvrit/PhotoBox.git"
 
 ### :wrench: Installing
 
-Open CMD and run command :
+Open CMD, go to the folder witch contain's the application code and run command :
 
 ```
 npm install
@@ -38,13 +38,21 @@ After that, you need to create a config.json (./PhotoBox/config.json) file like 
 }
 ```
 
-"port" : is the port witch listen nodeJS for this application.
-"upload_path" : is that path which is use to store upload files.
-"application_name" : is the name of the application which is use by all pages of the application.
+* "port" : is the port witch listen nodeJS for this application.
+* "upload_path" : is that path which is use to store upload files.
+* "application_name" : is the name of the application which is use by all pages of the application.
 
 ## :metal: Deployment
 
-Add additional notes about how to deploy this on a live system
+### If you want to use your server :
+
+You have to create a reverse proxy to redirect your 80 port to your custom port.
+I recommand you this tutorial : [How To Serve Node.js Applications with Nginx](https://morioh.com/p/fe738bbd2664).
+Now you can enjoy it.
+
+### if you want to use a new server :
+
+You can download an ISO image of raspbian : [here](https://google.com/)
 
 ## :hammer: Built With
 
