@@ -1,3 +1,4 @@
+![alt text](https://github.com/alexisgauvrit/PhotoBox/blob/Road-to-version-2.0/Dist/images/favicon.ico)
 # PhotoBox
 
 One Paragraph of project description goes here
