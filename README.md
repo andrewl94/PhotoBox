@@ -1,4 +1,9 @@
-![alt text](https://github.com/alexisgauvrit/PhotoBox/blob/Road-to-version-2.0/Dist/images/favicon.ico)
+![PhotoBox Logo](https://github.com/alexisgauvrit/PhotoBox/blob/Road-to-version-2.0/Dist/images/favicon.ico)
+
+<p align="center">
+  <img width="600" height="200" alt="PhotoBox Logo" src="https://github.com/alexisgauvrit/PhotoBox/blob/Road-to-version-2.0/Dist/images/favicon.ico">
+</p>
+
 # PhotoBox
 
 One Paragraph of project description goes here
