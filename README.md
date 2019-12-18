@@ -2,9 +2,8 @@
   <img alt="PhotoBox Logo" src="https://github.com/alexisgauvrit/PhotoBox/blob/Road-to-version-2.0/Dist/images/favicon.ico">
 </p>
 
-<h1 align="center">
-PhotoBox
-</h1>
+<h1 align="center">PhotoBox</h1>
+
 One Paragraph of project description goes here
 
 ## :rocket: Getting Started
@@ -13,7 +12,23 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### :triangular_ruler: Prerequisites
 
-You need to create a config.json file like that (you have to complete with your data) :
+You need to download [NodeJS](https://nodejs.org/) if you don't have it.
+
+You need to clone this repo, run :
+
+```
+git clone "https://github.com/alexisgauvrit/PhotoBox.git"
+```
+
+### :wrench: Installing
+
+Open CMD and run command :
+
+```
+npm install
+```
+
+After that, you need to create a config.json (./PhotoBox/config.json) file like that (you have to complete with your data) :
 
 ```
 {
@@ -23,23 +38,9 @@ You need to create a config.json file like that (you have to complete with your 
 }
 ```
 
-### :wrench: Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+"port" : is the port witch listen nodeJS for this application.
+"upload_path" : is that path which is use to store upload files.
+"application_name" : is the name of the application which is use by all pages of the application.
 
 ## :metal: Deployment
 
@@ -57,7 +58,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## :handshake: Authors
 
-* **Alexis Gauvrit** - *Initial work* - [alexisgauvrit](https://github.com/alexisgauvrit)
+* :bust_in_silhouette: **Alexis Gauvrit** - *Initial work* - [alexisgauvrit](https://github.com/alexisgauvrit)
 
 See also the list of [contributors](https://github.com/alexisgauvrit/PhotoBox/graphs/contributors) who participated in this project.
 
