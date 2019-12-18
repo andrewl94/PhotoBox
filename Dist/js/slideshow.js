@@ -21,7 +21,12 @@ function getRandomImage(){
         url: '/getRandomImage',
         type: 'POST',
         success: function (data, status) {
-            $('#slideshow_container').css('background-image', 'url(' + data + ')');
+            if(data.hasImg){
+                $('#slideshow_container').css('background-image', 'url(' + data.data + ')');
+            }
+            else{
+                $('#slideshow_container').css('background-image', 'url("/images/slideshow_default.jpg.jpg")');
+            }
             // Call this function every 5 sec
             setTimeout(getRandomImage, 5000); 
         },
