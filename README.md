@@ -47,7 +47,9 @@ After that, you need to create a config.json (./PhotoBox/config.json) file like 
 ### If you want to use your server :
 
 You have to create a reverse proxy to redirect your 80 port to your custom port.
+
 I recommand you this tutorial : [How To Serve Node.js Applications with Nginx](https://morioh.com/p/fe738bbd2664).
+
 Now you can enjoy it.
 
 ### if you want to use a new server :
