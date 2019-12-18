@@ -1,11 +1,10 @@
-![PhotoBox Logo](https://github.com/alexisgauvrit/PhotoBox/blob/Road-to-version-2.0/Dist/images/favicon.ico)
-
 <p align="center">
   <img alt="PhotoBox Logo" src="https://github.com/alexisgauvrit/PhotoBox/blob/Road-to-version-2.0/Dist/images/favicon.ico">
 </p>
 
-# PhotoBox
-
+<h1 align="center">
+PhotoBox
+</h1>
 One Paragraph of project description goes here
 
 ## :rocket: Getting Started
