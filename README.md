@@ -34,13 +34,15 @@ After that, you need to create a config.json (./PhotoBox/config.json) file like 
 {
     "port" : "CUSTOM_PORT",
     "upload_path" : "FAKE/PATH/",
-    "application_name" : "PhotoBox"
+    "application_name" : "PhotoBox",
+    "admin_key" : "CUSTOM_ADMIN_KEY"
 }
 ```
 
 * "port" : is the port witch listen nodeJS for this application.
 * "upload_path" : is that path which is use to store upload files.
 * "application_name" : is the name of the application which is use by all pages of the application.
+* "admin_key" : is the key use to access to admin panel.
 
 ## :metal: Deployment
 

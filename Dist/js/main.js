@@ -1,3 +1,4 @@
+var socket = io.connect('http://localhost');
 $(document).ready(function () {
 
     /* SET AND DISPLAY THE PREVIEW */
@@ -74,6 +75,7 @@ $(document).ready(function () {
             success: function (data, status) {
                 if(data){
                     $('#uploadOk').show();
+                    socket.emit('upload_ok');
                 }
                 else{
                     $.alert({

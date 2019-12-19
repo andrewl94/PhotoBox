@@ -1,4 +1,4 @@
-const config = require('./config.json');
+const config = require('./config.json'); // Config file
 
 var express = require('express');
 var app = express();
@@ -13,12 +13,13 @@ var formidable = require('formidable');// form
 var path = require('path');// path
 
 var commentList = [];
+var Clients = [];
 
 /* CSS / JS / iMAGES */
 app.use(express.static('Dist'));
 
 /* routes */
-app.get('/', function(req, res) { 
+app.get('/', function(req, res) {
     res.render('index.ejs', {title: config.application_name});
 })
 app.get('/slideshow', function(req, res) { 
@@ -98,6 +99,43 @@ app.post('/getRandomImage', function(req, res) {
         
     });
 })
+app.get('/admin', function(req, res) { 
+    res.render('admin.ejs', {title: config.application_name, clients: Clients});
+})
+app.post('/getAllImages', function(req, res){
+    var obj = new Object();
+    obj.hasFile = false;
+    obj.files = [];
+
+    fs.readdirSync(config.upload_path).forEach(file => {
+        let extensionName = path.extname(config.upload_path + file).split('.').pop();
+
+        let arrayImgExtension = ['png', 'jpg', 'jpeg', 'bmp', 'svg'];
+
+        if(arrayImgExtension.includes(extensionName.trim().toLowerCase())){
+            var data = "";
+            data = fs.readFileSync(config.upload_path + file);
+
+            let base64Image = new Buffer(data, 'binary').toString('base64');
+                                        
+            //combine all strings
+            let imgSrcString = `data:image/${extensionName};base64,${base64Image}`;
+                        
+            if(!obj.hasFile){
+                obj.hasFile = true;
+            }
+
+            let fileObj = new Object();
+            //send image src string into jade compiler
+            fileObj.data = imgSrcString;
+            fileObj.name = file;
+
+            obj.files.push(fileObj);
+        }
+    });
+
+    res.send(obj);
+})
 /* if 404 */
 .use(function(req, res, next){
     res.redirect('/');
@@ -105,11 +143,15 @@ app.post('/getRandomImage', function(req, res) {
 
 /* real time */
 io.sockets.on('connection', function (socket) {
-    socket.emit('get_commentList', commentList);
+    var address = socket.handshake.address;
+    
+    if(!Clients.includes(address)){
+        Clients.push(address);
+        socket.broadcast.emit('new_client', Clients);
+    }
 
-    socket.on('join', function (pseudo) {
-        socket.broadcast.emit('user_join', ent.encode(pseudo));
-    });
+    socket.emit('get_clients', Clients);
+    socket.emit('get_commentList', commentList);
 
     socket.on('add_new', function (commentObj) {
         commentObj.pseudo = ent.encode(commentObj.pseudo);
