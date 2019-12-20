@@ -42,11 +42,21 @@ socket.on('upload_ok', function() {
 });
 
 function getAllImages(){
+    $('#file_container').html('<div id="loader" style="display:block;"></div>');
     $.ajax({
         url: '/getAllImages',
         type: 'POST',
         success: function (data, status) {
-            console.log(data);
+            var html = "";
+            if(data.hasFile){
+                data.files.forEach(file => {
+                    html += "<img src=\"" + file.data + "\" width=\"300\" />"
+                });
+            }
+            else{
+                html = "Aucune image pour le moment..."
+            }
+            $('#file_container').html(html);
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             console.log(XMLHttpRequest);

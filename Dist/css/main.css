@@ -5,6 +5,18 @@ html, body, input, textarea{
 body{
     margin: 0;
 }
+.text-center{
+    text-align: center;
+}
+.text-red{
+    color:red;
+}
+.text-green{
+    color:green;
+}
+.text-blue{
+    color:blue;
+}
 
 /* BUTTONS */
 button{
@@ -304,4 +316,35 @@ form > i{
     vertical-align: middle;
     color: white;
     font-weight: bold;
+}
+
+
+
+#admin_body{
+    background-image: url('../images/admin.png');
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+#admin_title{
+    text-align:center;
+    padding: 20px;
+    color:#ffffff;
+}
+#admin_title h1{
+    color:#ffffff;
+    margin:0;
+    padding:0;
+}
+#admin_panel_container{
+    border-radius: 10px;
+    background-color: #ffffff;
+    width:60%;
+    margin:10px auto 80px;
+    padding: 20px;
+}
+
+#file_container{
+
 }
