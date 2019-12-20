@@ -13,10 +13,18 @@ socket.on('get_clients', function(Clients) {
 var commentList = [];
 socket.on('get_commentList', function(commentList) {
     commentList = commentList;
+    $('#comment_admin_container').html('');
     commentList.forEach(commentObj => {
         displayComment(commentObj);
     });
+    if($('#comment_admin_container').html().length == 0){
+        $('#comment_admin_container').html('Aucun commentaire pour le moment...');
+    }
 });
+
+// Init
+getAllImages();
+getDeletedImages();
 
 /**
  * event add new client
@@ -29,6 +37,9 @@ socket.on('new_client', function(Clients) {
  * event add new comment post
  */
 socket.on('add_new', function(commentObj) {
+    if(commentList.length==0){
+        $('#comment_admin_container').html('');
+    }
     commentList.push(commentObj);
     displayComment(commentObj);
 });
@@ -41,6 +52,9 @@ socket.on('upload_ok', function() {
     getAllImages();
 });
 
+/*
+ * Get all slideshow files
+ */
 function getAllImages(){
     $('#file_container').html('<div id="loader" style="display:block;"></div>');
     $.ajax({
@@ -50,7 +64,11 @@ function getAllImages(){
             var html = "";
             if(data.hasFile){
                 data.files.forEach(file => {
-                    html += "<img src=\"" + file.data + "\" width=\"300\" />"
+                    html += "<div class=\"img_container\">";
+                    html += "<img src=\"" + file.data + "\" />";
+                    html += "<p>" + file.name + "</p>";
+                    html += '<button class="btn btn-danger" onclick="toggleFile(\''+ file.name +'\', true)"><i class="fas fa-ban"></i> Supprimer du diapo</button>';
+                    html += "</div>";
                 });
             }
             else{
@@ -60,13 +78,70 @@ function getAllImages(){
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             console.log(XMLHttpRequest);
+            $('#file_delete_container').html(html);
         }
     });
 }
 
-function displayComment(commentObj){
-    let html = "<p>" + commentObj.pseudo + " : " + commentObj.comment + "</p>";
-    $('#comment_container').append(html);
+/*
+ * Get all deleted files
+ */
+function getDeletedImages(){
+    $('#file_delete_container').html('<div id="loader" style="display:block;"></div>');
+    $.ajax({
+        url: '/getAllDeletedImages',
+        type: 'POST',
+        success: function (data, status) {
+            var html = "";
+            if(data.hasFile){
+                data.files.forEach(file => {
+                    html += "<div class=\"img_container\">";
+                    html += "<img src=\"" + file.data + "\" />";
+                    html += "<p>" + file.name + "</p>";
+                    html += '<button class="btn btn-success" onclick="toggleFile(\''+ file.name +'\', false)"><i class="fas fa-plus"></i> Ajouter au diapo</button>';
+                    html += "</div>";
+                });
+            }
+            else{
+                html = "Aucune image pour le moment..."
+            }
+            $('#file_delete_container').html(html);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest);
+            $('#file_delete_container').html(html);
+        }
+    });
 }
 
-getAllImages();
+/*
+ * Display comment
+ */
+function displayComment(commentObj){
+    let html = "<p><strong>" + commentObj.pseudo + " :</Strong> " + commentObj.comment + "</p>";
+    $('#comment_admin_container').append(html);
+}
+
+/*
+ * Remove or Add file to slideshow
+ */
+function toggleFile(filename, removed){
+    $('#file_delete_container').html('<div id="loader" style="display:block;"></div>');
+    $('#file_container').html('<div id="loader" style="display:block;"></div>');
+    $.ajax({
+        url: '/' + ( removed ? 'removeFile' : 'addFile'),
+        type: 'POST',
+        data: { filename: filename},
+        success: function (data, status) {
+            if(data){
+                getAllImages();
+                getDeletedImages();
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest);
+            getAllImages();
+            getDeletedImages();
+        }
+    });
+}

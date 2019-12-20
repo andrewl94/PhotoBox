@@ -76,7 +76,7 @@ app.post('/getRandomImage', function(req, res) {
                 //get image file extension name
                 let extensionName = path.extname(config.upload_path + file).split('.').pop();
                 
-                let arrayImgExtension = ['png', 'jpg', 'jpeg', 'bmp', 'svg'];
+                let arrayImgExtension = ['png', 'jpg', 'jpeg', 'bmp', 'svg', 'gif'];
 
                 if(arrayImgExtension.includes(extensionName.trim().toLowerCase())){
                     //convert image file to base64-encoded string
@@ -110,7 +110,7 @@ app.post('/getAllImages', function(req, res){
     fs.readdirSync(config.upload_path).forEach(file => {
         let extensionName = path.extname(config.upload_path + file).split('.').pop();
 
-        let arrayImgExtension = ['png', 'jpg', 'jpeg', 'bmp', 'svg'];
+        let arrayImgExtension = ['png', 'jpg', 'jpeg', 'bmp', 'svg', 'gif'];
 
         if(arrayImgExtension.includes(extensionName.trim().toLowerCase())){
             var data = "";
@@ -135,6 +135,64 @@ app.post('/getAllImages', function(req, res){
     });
 
     res.send(obj);
+})
+app.post('/getAllDeletedImages', function(req, res){
+    var obj = new Object();
+    obj.hasFile = false;
+    obj.files = [];
+
+    fs.readdirSync(config.deleted_path).forEach(file => {
+        let extensionName = path.extname(config.upload_path + file).split('.').pop();
+
+        let arrayImgExtension = ['png', 'jpg', 'jpeg', 'bmp', 'svg', 'gif'];
+
+        if(arrayImgExtension.includes(extensionName.trim().toLowerCase())){
+            var data = "";
+            data = fs.readFileSync(config.deleted_path + file);
+
+            let base64Image = new Buffer(data, 'binary').toString('base64');
+                                        
+            //combine all strings
+            let imgSrcString = `data:image/${extensionName};base64,${base64Image}`;
+                        
+            if(!obj.hasFile){
+                obj.hasFile = true;
+            }
+
+            let fileObj = new Object();
+            //send image src string into jade compiler
+            fileObj.data = imgSrcString;
+            fileObj.name = file;
+
+            obj.files.push(fileObj);
+        }
+    });
+
+    res.send(obj);
+})
+app.post('/removeFile', function(req, res) { 
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields, files) {
+        var filename_old = config.upload_path + fields["filename"];
+        var filename_new = config.deleted_path + fields["filename"];
+
+        fs.rename(filename_old, filename_new, function(err){
+            if (err) res.send(false);
+            res.send(true);
+        });
+    });
+})
+app.post('/addFile', function(req, res) { 
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields, files) {
+        var filename_old = config.deleted_path + fields["filename"];
+        var filename_new = config.upload_path + fields["filename"];
+        
+        fs.rename(filename_old, filename_new, function(err){
+            if (err) res.send(false);
+            res.send(true);
+        });
+    });
 })
 /* if 404 */
 .use(function(req, res, next){

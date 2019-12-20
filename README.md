@@ -34,6 +34,7 @@ After that, you need to create a config.json (./PhotoBox/config.json) file like 
 {
     "port" : "CUSTOM_PORT",
     "upload_path" : "FAKE/PATH/",
+    "deleted_path" : "FAKE/PATH/2",
     "application_name" : "PhotoBox",
     "admin_key" : "CUSTOM_ADMIN_KEY"
 }
