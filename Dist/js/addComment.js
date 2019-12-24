@@ -4,7 +4,7 @@ $('#alert_container').hide();
 /**
  * Event keypress on every input to display or not the submit button
  */
-$('.inputText').on('keypress', function(){
+$('.inputText').on('keyup', function(){
     $('#btnNewComment').prop("disabled", $('#pseudo').val().trim().length == 0 || $('#comment').val().trim().length == 0);
 });
 

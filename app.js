@@ -6,7 +6,6 @@ var app = express();
 const port = process.env.PORT || config.port;
 var server = app.listen(port);
 
-var ent = require('ent'); // Remove HTML chars (like htmlentities - PHP)
 var io = require('socket.io').listen(server);
 var fs = require('fs');// Manage files
 var formidable = require('formidable');// form
@@ -225,8 +224,8 @@ io.sockets.on('connection', function (socket) {
     socket.emit('get_commentList', commentList);
 
     socket.on('add_new', function (commentObj) {
-        commentObj.pseudo = ent.encode(commentObj.pseudo);
-        commentObj.comment = ent.encode(commentObj.comment);
+        commentObj.pseudo = commentObj.pseudo;
+        commentObj.comment = commentObj.comment;
         commentList.push(commentObj);
         socket.broadcast.emit('add_new', commentObj);
     });
