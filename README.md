@@ -10,11 +10,19 @@ One Paragraph of project description goes here
 
 ### :house: Home Page
 
+Description here ...
+
 ### :clapper: SlideShow Page
+
+Description here ...
 
 ### :speech_balloon: Add comment Page
 
+Description here ...
+
 ### :lock: Admin Page
+
+Description here ...
 
 
 ## :rocket: Getting Started
