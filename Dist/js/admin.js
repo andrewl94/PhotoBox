@@ -4,7 +4,7 @@ var socket = io.connect('http://localhost');
  * event get client
  */
 socket.on('get_clients', function(Clients) {
-    $('#nbClient').html(Clients.length);
+    $('#nbClient').html(Clients.length-1);
 });
 
 /**
@@ -30,7 +30,7 @@ getDeletedImages();
  * event add new client
  */
 socket.on('new_client', function(Clients) {
-    $('#nbClient').html(Clients.length);
+    $('#nbClient').html(Clients.length-1);
 });
 
 /**
@@ -48,8 +48,80 @@ socket.on('add_new', function(commentObj) {
  * event when new image upload
  */
 socket.on('upload_ok', function() {
-    alert('new image');
     getAllImages();
+});
+
+/*
+ * Authorize access
+ */
+$(document).ready(function(){
+    $('#admin_panel_container').hide();
+    var confirm = $.confirm({
+        title: 'Clé d\'identification nécessaire',
+        content: '' +
+        '<label for="admin_key">Clé d\'administration :</label>' +
+        '<input id="admin_key" class="inputText" type="password" placeholder="" />' +
+        '',
+        type: 'red',
+        icon: 'fas fa-exclamation-triangle',
+        draggable: false,
+        boxWidth: ($(document).width() > 600 ? '60%' : '90%'),
+        useBootstrap: false,
+        scrollToPreviousElement: false,
+        buttons: {
+            Valider: {
+                btnClass: 'btn-red',
+                action: function () {
+                    // Validation
+                    if($('#admin_key').val().trim().length == 0){
+                        $.alert({
+                            title: 'Clé d\'administration manquante',
+                            content: 'Veuillez saisir la clé d\'administration.',
+                            type: 'red',
+                            boxWidth: ($(document).width() > 600 ? '60%' : '90%'),
+                            useBootstrap: false,
+                        });
+                        $('#admin_key').addClass('error').unbind('change').on('change', function(){
+                            $('#admin_key').removeClass('error');
+                        });
+                    }
+                    // Check
+                    $.ajax({
+                        url: '/checkAdminKey',
+                        type: 'POST',
+                        data: {
+                            admin_key: $('#admin_key').val().trim()
+                        },
+                        success: function (data, status) {
+                            if(data.keyValid){
+                                confirm.close();
+                                $('#admin_panel_container').show();
+                            }
+                            else{
+                                $.alert({
+                                    title: 'Clé d\'administration invalide',
+                                    content: 'Veuillez saisir la clé d\'administration valide.',
+                                    type: 'red',
+                                    boxWidth: ($(document).width() > 600 ? '60%' : '90%'),
+                                    useBootstrap: false,
+                                });
+                            }
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            $.alert({
+                                title: 'Erreur',
+                                content: 'Une erreur est survenu, veuillez réessayer ultérieurement.<br />' + XMLHttpRequest.responseText,
+                                type: 'red',
+                                boxWidth: ($(document).width() > 600 ? '60%' : '90%'),
+                                useBootstrap: false,
+                            });
+                        }
+                    });
+                    return false;
+                }
+            },
+        }
+    });
 });
 
 /*
@@ -77,7 +149,6 @@ function getAllImages(){
             $('#file_container').html(html);
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log(XMLHttpRequest);
             $('#file_delete_container').html(html);
         }
     });
@@ -108,7 +179,6 @@ function getDeletedImages(){
             $('#file_delete_container').html(html);
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log(XMLHttpRequest);
             $('#file_delete_container').html(html);
         }
     });
@@ -139,7 +209,6 @@ function toggleFile(filename, removed){
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log(XMLHttpRequest);
             getAllImages();
             getDeletedImages();
         }

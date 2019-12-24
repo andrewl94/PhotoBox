@@ -2,6 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>
     <link rel='icon' href='images/favicon.ico' type='image/x-icon'/>
@@ -18,7 +19,7 @@
                     <h1><%= title %></h1>
                     <div id="input_container">
                         <input type="file" name="file" class="imputfile" id="fileInput" accept='image/*' />
-                        <label for="fileInput">
+                        <label id="label_file" for="fileInput">
                             <span>Choisir une image</span>
                         </label>
 

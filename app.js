@@ -194,6 +194,19 @@ app.post('/addFile', function(req, res) {
         });
     });
 })
+app.post('/checkAdminKey', function(req, res) { 
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields, files) {
+        let obj = new Object();
+        obj.keyValid = (key === config.admin_key);
+        if(fields.hasOwnProperty('admin_key')){
+            var key = fields['admin_key'];
+
+            obj.keyValid = (key === config.admin_key);
+        }
+        res.send(obj);
+    });
+})
 /* if 404 */
 .use(function(req, res, next){
     res.redirect('/');

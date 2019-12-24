@@ -28,15 +28,15 @@ button{
 .imputfile{
     display: none;
 }
-label{
+label#label_file{
     display: inline-block;
 
     background-color: rgb(219,21,99);
 }
-label:hover {
+label#label_file:hover {
     background-color: rgb(158, 22, 76);
 }
-label, #btnValid,#btnAddComment,#btnNewComment{
+label#label_file, #btnValid,#btnAddComment,#btnNewComment{
     font-size: 25px;
     font-weight: 700;
     cursor: pointer;
@@ -185,14 +185,38 @@ form > i{
 /**/
 
 /**/
+@media screen and (max-width: 1100px) {
+    #file_delete_container > div.img_container, #file_container > div.img_container {
+        width: 47%!important;
+    }
+}
+@media screen and (max-width: 900px) {
+    .inputText{
+        width: 100%!important;
+    }
+    #admin_panel_container {
+        width: 90%!important;
+    }
+}
+@media screen and (max-width: 480px) {
+    #file_delete_container > div.img_container, #file_container > div.img_container {
+        width: 97%!important;
+    }
+}
 @media screen and (max-width: 450px) {
     #form_container{
         width: 100%;
     }
+    #alert_container{
+        width:100%!important;
+    }
 }
 @media screen and (max-width: 350px) {
     #form_container{
-        padding: 50px 0;
+        padding: 50px 5px;
+    }
+    .inputText{
+        width: 95%!important;
     }
 }
 @media screen and (max-width: 300px) {
@@ -202,13 +226,13 @@ form > i{
     form > i {
         font-size: 40px;
     }
-    label, #btnValid, #newImg, #changeImg{
+    label#label_file, #btnValid, #newImg, #changeImg{
         font-size: 15px;
     }
     #uploadOk p{
         font-size: 12px;
     }
-    button, label{
+    button, label#label_file{
         width: 100%;
         min-width: 0px!important;
     }
@@ -265,7 +289,7 @@ form > i{
 
 
 /**/
-.inputText{
+.inputText, #admin_key{
     display:inline-block;
     margin:10px auto;
     width: 70%;
@@ -279,7 +303,7 @@ form > i{
     border: 1px solid #ced4da;
     border-radius: 5px;
     padding:10px 5px;
-    margin-left:-5px;
+    /*margin-left:-5px;*/
 }
 .btnBlock{
     display:block;
@@ -359,6 +383,8 @@ form > i{
 #comment_admin_container > p{
     padding: 0;
     margin: 0;
+    word-break: break-word;
+    white-space: normal;
 }
 #file_container,
 #file_delete_container{
@@ -379,6 +405,8 @@ form > i{
     padding: 10px;
     margin: 0;
     text-align: center;
+    word-break: break-word;
+    white-space: normal;
 }
 #file_delete_container img,
 #file_container img{
@@ -427,4 +455,8 @@ form > i{
     color: #fff;
     background-color: #4f805a;
     border-color: #4f805a;
+}
+#admin_key{
+    width: 50%!important;
+    margin-left: 10px;
 }

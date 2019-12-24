@@ -33,6 +33,7 @@ $(document).ready(function () {
                 title: 'L\'extension (*.' + extension + ') n\'est pas autorisée.',
                 content: 'Seules les extensions de fichier suivantes sont autorisées : <br/>' + extensionarray.join(', ') + '.',
                 type: "red",
+                boxWidth: ($(document).width() > 600 ? '60%' : '90%'),
                 useBootstrap: false,
                 typeAnimated: true
             });
@@ -82,6 +83,7 @@ $(document).ready(function () {
                         title: "Erreur",
                         content: "Une erreur est survenue lors de l'envoie. Veuillez réessayer ultérieurement.",
                         type: "red",
+                        boxWidth: ($(document).width() > 600 ? '60%' : '90%'),
                         useBootstrap: false,
                         typeAnimated: true,
                         scrollToPreviousElement: false
@@ -92,8 +94,9 @@ $(document).ready(function () {
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 $.alert({
                     title: "Erreur",
-                    content: "Une erreur est survenue lors de l'envoie. Veuillez réessayer ultérieurement.",
+                    content: "Une erreur est survenue lors de l'envoie. Veuillez réessayer ultérieurement.<br />" + XMLHttpRequest.responseText,
                     type: "red",
+                    boxWidth: ($(document).width() > 600 ? '60%' : '90%'),
                     useBootstrap: false,
                     typeAnimated: true,
                     scrollToPreviousElement: false

@@ -44,6 +44,7 @@ function validation(){
             title: 'Formulaire incomplet',
             content: 'Veuillez renseigner tous les champs obligatoire.',
             type: "red",
+            boxWidth: ($(document).width() > 600 ? '60%' : '90%'),
             useBootstrap: false,
             typeAnimated: true
         });
