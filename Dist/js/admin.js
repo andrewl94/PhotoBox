@@ -60,7 +60,7 @@ $(document).ready(function(){
         title: 'Clé d\'identification nécessaire',
         content: '' +
         '<label for="admin_key">Clé d\'administration :</label>' +
-        '<input id="admin_key" class="inputText" type="password" placeholder="" />' +
+        '<input id="admin_key" type="password" placeholder="" />' +
         '',
         type: 'red',
         icon: 'fas fa-exclamation-triangle',
