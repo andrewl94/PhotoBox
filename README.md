@@ -1,10 +1,21 @@
 <p align="center">
-  <img alt="PhotoBox Logo" src="https://github.com/alexisgauvrit/PhotoBox/blob/Road-to-version-2.0/Dist/images/favicon.ico">
+  <img alt="PhotoBox Logo" src="https://github.com/alexisgauvrit/PhotoBox/blob/master/Dist/images/favicon.ico">
 </p>
 
 <h1 align="center">PhotoBox</h1>
 
 One Paragraph of project description goes here
+
+## :clipboard: Getting Started
+
+### :house: Home Page
+
+### :clapper: SlideShow Page
+
+### :speech_balloon: Add comment Page
+
+### :lock: Admin Page
+
 
 ## :rocket: Getting Started
 
@@ -22,13 +33,13 @@ git clone "https://github.com/alexisgauvrit/PhotoBox.git"
 
 ### :wrench: Installing
 
-Open CMD, go to the folder witch contain's the application code and run command :
+Run command :
 
 ```
 npm install
 ```
 
-After that, you need to create a config.json (./PhotoBox/config.json) file like that (you have to complete with your data) :
+After that, you need to create a config.json file (./PhotoBox/config.json) like that (you have to complete with your data) :
 
 ```
 {
@@ -41,7 +52,8 @@ After that, you need to create a config.json (./PhotoBox/config.json) file like 
 ```
 
 * "port" : is the port witch listen nodeJS for this application.
-* "upload_path" : is that path which is use to store upload files.
+* "upload_path" : is the path which is use to store upload files.
+* "deleted_path" : is the path which is use to store deleted files.
 * "application_name" : is the name of the application which is use by all pages of the application.
 * "admin_key" : is the key use to access to admin panel.
 
