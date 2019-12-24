@@ -6,7 +6,7 @@
 
 One Paragraph of project description goes here
 
-## :clipboard: Getting Started
+## :clipboard: Features
 
 ### :house: Home Page
 
