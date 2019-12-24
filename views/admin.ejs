@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> - Admin Dashboad</title>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>
+    <link rel='icon' href='images/favicon.ico' type='image/x-icon'/>
+    <link rel="stylesheet" href="css/fontawesome-5.9.0/css/all.min.css">
+    <link rel="stylesheet" href="css/jquery-confirm.min.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body id="admin_body">
+      <div id="admin_title">
+          <h1><i class="fas fa-camera"></i> <%= title %></h1>
+      </div>
+      <div id="admin_panel_container">
+          <h2 class="text-center">Panel d'administration</h2>
+
+          <h3 class="text-orange"><i class="fas fa-users"></i> Nombre de personnes total : <span id="nbClient">0</span></p>
+          
+          <h3 class="text-blue"><i class="fas fa-comments"></i> Liste des commentaires envoyés :</h3>
+          <div id="comment_admin_container">
+              Aucun commentaire pour le moment...
+          </div>
+
+          <h3 class="text-red"><i class="fas fa-minus-circle"></i> Liste des fichiers upload et supprimé du diaporama :</h3>
+          <div id="file_delete_container">
+              Aucune image pour le moment...
+          </div>
+            
+          <h3 class="text-green"><i class="fas fa-upload"></i> Liste des fichiers upload et visible dans le diaporama :</h3>
+          <div id="file_container">
+            Aucune image pour le moment...
+          </div>
+      </div>
+      
+    <script type="text/javascript" src="js/jquery-confirm.min.js" ></script>
+    <script src="../socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/admin.js" ></script>
+  </body>
+</html>
+

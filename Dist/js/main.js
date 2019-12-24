@@ -1,3 +1,4 @@
+var socket = io.connect('http://localhost');
 $(document).ready(function () {
 
     /* SET AND DISPLAY THE PREVIEW */
@@ -12,7 +13,7 @@ $(document).ready(function () {
             $('#imageToUpload').attr('src', reader.result);
           }, false);
 
-
+        // check the file extension
         if ($.inArray(extension, extensionarray) > -1) {
             if (file) {
                 reader.readAsDataURL(file);
@@ -32,6 +33,7 @@ $(document).ready(function () {
                 title: 'L\'extension (*.' + extension + ') n\'est pas autorisée.',
                 content: 'Seules les extensions de fichier suivantes sont autorisées : <br/>' + extensionarray.join(', ') + '.',
                 type: "red",
+                boxWidth: ($(document).width() > 600 ? '60%' : '90%'),
                 useBootstrap: false,
                 typeAnimated: true
             });
@@ -63,7 +65,7 @@ $(document).ready(function () {
         $('#loader').show();
 
         $.ajax({
-            url: './includes/callback.php',
+            url: '/sendImage',
             type: 'POST',
             data: oFormData,
             contentType: false,
@@ -72,15 +74,16 @@ $(document).ready(function () {
                 return data;
             },
             success: function (data, status) {
-                $('#loader').hide();
-                if(data==1){
+                if(data){
                     $('#uploadOk').show();
+                    socket.emit('upload_ok');
                 }
                 else{
                     $.alert({
                         title: "Erreur",
-                        content: data,
+                        content: "Une erreur est survenue lors de l'envoie. Veuillez réessayer ultérieurement.",
                         type: "red",
+                        boxWidth: ($(document).width() > 600 ? '60%' : '90%'),
                         useBootstrap: false,
                         typeAnimated: true,
                         scrollToPreviousElement: false
@@ -89,11 +92,26 @@ $(document).ready(function () {
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
+                $.alert({
+                    title: "Erreur",
+                    content: "Une erreur est survenue lors de l'envoie. Veuillez réessayer ultérieurement.<br />" + XMLHttpRequest.responseText,
+                    type: "red",
+                    boxWidth: ($(document).width() > 600 ? '60%' : '90%'),
+                    useBootstrap: false,
+                    typeAnimated: true,
+                    scrollToPreviousElement: false
+                });
+                $('#changeImg').trigger('click');
+            },
+            complete: function(){
                 $('#loader').hide();
-                alert(textStatus);
             }
         });
         
         return false;
+    });
+
+    $('#btnAddComment').on('click', function(){
+        window.location.href = "/addComment";
     });
 });
