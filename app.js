@@ -13,6 +13,18 @@ var path = require('path');// path
 
 var commentList = [];
 var Clients = [];
+var nbFiles = 0;
+
+fs.readdir(config.upload_path, (err, files) => {
+    if(!err){
+        nbFiles += files.length;
+    }
+});
+fs.readdir(config.deleted_path, (err, files) => {
+    if(!err){
+        nbFiles += files.length;
+    }
+});
 
 /* CSS / JS / iMAGES */
 app.use(express.static('Dist'));
@@ -27,19 +39,11 @@ app.get('/slideshow', function(req, res) {
 app.get('/addComment', function(req, res) { 
     res.render('addComment.ejs', {title: config.application_name});
 })
-app.post('/sendImage', function(req, res) { 
+app.post('/sendImage', function(req, res) {
         var form = new formidable.IncomingForm();
         form.parse(req, function (err, fields, files) {
             // oldpath : temporary folder to which file is saved to
             var oldpath = files.file.path;
-            // Count number of files in the folder
-            var nbFiles = 0;
-            fs.readdir(config.upload_path, (err, files) => {
-                if(err){
-                    res.send(false);
-                }
-                nbFiles = files.length;
-            });
             var newpath = config.upload_path + "photo_" + nbFiles + "_" + files.file.name;
                 // copy the file to a new location
                 fs.rename(oldpath, newpath, function (err) {
@@ -47,6 +51,7 @@ app.post('/sendImage', function(req, res) {
                         res.send(false);
                     }
                     else{
+                        nbFiles++;
                         res.send(true);
                     }
                 });
@@ -228,5 +233,9 @@ io.sockets.on('connection', function (socket) {
         commentObj.comment = commentObj.comment;
         commentList.push(commentObj);
         socket.broadcast.emit('add_new', commentObj);
+    });
+    
+    socket.on('upload_ok', function () {
+        socket.broadcast.emit('upload_ok');
     });
 });
