@@ -4,7 +4,7 @@
 
 <h1 align="center">PhotoBox</h1>
 
-One Paragraph of project description goes here.
+This project is for raspberry but you can also use it on all nodeJS servers. You can have a slideshow of your event, you can upload file to add in your slideshow, users can also send comments, they will be visible in the slideshow.
 
 This project is set for french users.
 
@@ -28,7 +28,7 @@ You can access to this page with the URL : "/slideshow".
   <img alt="Slideshow screen capture" src="https://github.com/alexisgauvrit/PhotoBox/blob/Version-2.0-NodeJS/Dist/images/Features/slideshow1.png">
 </p>
 
-On this page, you can see a slideshow with all image uploaded. You can see also user's comments at the bottom of this page (image 2).
+On this page, you can see a slideshow with all images uploaded. You can see also user's comments at the bottom of this page (image 2).
 
 <p align="center">
   <img alt="Slideshow screen capture" src="https://github.com/alexisgauvrit/PhotoBox/blob/Version-2.0-NodeJS/Dist/images/Features/slideshow2.png">
@@ -56,10 +56,10 @@ You can access to this page with the URL : "/admin". You have to write the admin
   <img alt="Slideshow screen capture" src="https://github.com/alexisgauvrit/PhotoBox/blob/Version-2.0-NodeJS/Dist/images/Features/admin2.png">
 </p>
 
-On this page, you can see many data, number of users connected ("Nombre de personnes total"), the list of comments sent ("Liste des commentaires envoyées"), the list of file remove from the slideshow ("Liste des fichiers upload et supprimé du diaporama") and the list of file visible in the slideshow ("Liste des fichiers upload et visible dans le diaporama").
+On this page, you can see many data, number of users connected ("Nombre de personnes total"), the list of comments sent ("Liste des commentaires envoyées"), the list of remove files from the slideshow ("Liste des fichiers upload et supprimé du diaporama") and the list of visible files in the slideshow ("Liste des fichiers upload et visible dans le diaporama").
 
-Foreach file upload, you can remove it from the slideshow by clicking on "Supprimer du diapo" (remove from slideshow), it will be not visible after.
-Foreach file remove from the slideshow, you can add it in the slideshow by clicking "Ajouter au diapo" (add to slideshow), it will be visible after.
+For each uploaded file, you can remove it from the slideshow by clicking on "Supprimer du diapo" (remove from the slideshow), it will be not visible after.
+For each removed file from the slideshow, you can add it in the slideshow by clicking "Ajouter au diapo" (add to slideshow), it will be visible after.
 
 
 ## :rocket: Getting Started
