@@ -13,7 +13,7 @@ This project is set for french users.
 ### :house: Home Page
 
 <p align="center">
-  <img alt="Home screen capture" src="https://github.com/alexisgauvrit/PhotoBox/blob/master/Dist/Version-2.0-NodeJS/Features/home.png">
+  <img alt="Home screen capture" src="https://github.com/alexisgauvrit/PhotoBox/blob/Version-2.0-NodeJS/Dist/Version-2.0-NodeJS/Features/home.png">
 </p>
 
 On the home page, you can upload an image file (.jpeg, .jpg, .png, gif, .svg, .bmp) by clicking on "Choisir une image" (Choose an image file).
@@ -33,8 +33,6 @@ On this page, you can see a slideshow with all image uploaded. You can see also 
 <p align="center">
   <img alt="Slideshow screen capture" src="https://github.com/alexisgauvrit/PhotoBox/blob/Version-2.0-NodeJS/Dist/images/Features/slideshow2.png">
 </p>
-
-On this page, you can see a slideshow with all image uploaded. You can see also user's comments at the bottom of this page (image 2).
 
 ### :speech_balloon: Add comment Page
 
