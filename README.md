@@ -4,25 +4,64 @@
 
 <h1 align="center">PhotoBox</h1>
 
-One Paragraph of project description goes here
+One Paragraph of project description goes here.
+
+This project is set for french users.
 
 ## :clipboard: Features
 
 ### :house: Home Page
 
-Description here ...
+<p align="center">
+  <img alt="Home screen capture" src="https://github.com/alexisgauvrit/PhotoBox/blob/master/Dist/Version-2.0-NodeJS/Features/home.png">
+</p>
+
+On the home page, you can upload an image file (.jpeg, .jpg, .png, gif, .svg, .bmp) by clicking on "Choisir une image" (Choose an image file).
+
+You can also, go to the add comment page by clicking on "Envoyer un message" (send a comment).
 
 ### :clapper: SlideShow Page
 
-Description here ...
+You can access to this page with the URL : "/slideshow".
+
+<p align="center">
+  <img alt="Slideshow screen capture" src="https://github.com/alexisgauvrit/PhotoBox/blob/Version-2.0-NodeJS/Dist/images/Features/slideshow1.png">
+</p>
+
+On this page, you can see a slideshow with all image uploaded. You can see also user's comments at the bottom of this page (image 2).
+
+<p align="center">
+  <img alt="Slideshow screen capture" src="https://github.com/alexisgauvrit/PhotoBox/blob/Version-2.0-NodeJS/Dist/images/Features/slideshow2.png">
+</p>
+
+On this page, you can see a slideshow with all image uploaded. You can see also user's comments at the bottom of this page (image 2).
 
 ### :speech_balloon: Add comment Page
 
-Description here ...
+You can access to this page with the URL : "/addComment" or with the home page.
+
+<p align="center">
+  <img alt="Slideshow screen capture" src="https://github.com/alexisgauvrit/PhotoBox/blob/Version-2.0-NodeJS/Dist/images/Features/addComment.png">
+</p>
+
+On this page, you can send a comment. You have to write your username ("pseudo") and your message. To send it click on "Envoyer le commentaire" (send the comment).
 
 ### :lock: Admin Page
 
-Description here ...
+<p align="center">
+  <img alt="Slideshow screen capture" src="https://github.com/alexisgauvrit/PhotoBox/blob/Version-2.0-NodeJS/Dist/images/Features/admin1.png">
+</p>
+
+You can access to this page with the URL : "/admin". You have to write the admin key to access to this page.
+
+<p align="center">
+  <img alt="Slideshow screen capture" src="https://github.com/alexisgauvrit/PhotoBox/blob/Version-2.0-NodeJS/Dist/images/Features/admin2.png">
+</p>
+
+On this page, you can see many data, number of users connected ("Nombre de personnes total"), the list of comments sent ("Liste des commentaires envoyées"), the list of file remove from the slideshow ("Liste des fichiers upload et supprimé du diaporama") and the list of file visible in the slideshow ("Liste des fichiers upload et visible dans le diaporama").
+
+Foreach file upload, you can remove it from the slideshow by clicking on "Supprimer du diapo" (remove from slideshow), it will be not visible after.
+Foreach file remove from the slideshow, you can add it in the slideshow by clicking "Ajouter au diapo" (add to slideshow), it will be visible after.
 
 
 ## :rocket: Getting Started
