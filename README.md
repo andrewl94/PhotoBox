@@ -90,15 +90,15 @@ After that, you need to create a config.json file (./PhotoBox/config.json) like 
 {
     "port" : "CUSTOM_PORT",
     "upload_path" : "FAKE/PATH/",
-    "deleted_path" : "FAKE/PATH/2",
+    "deleted_path" : "FAKE/PATH/2/",
     "application_name" : "PhotoBox",
     "admin_key" : "CUSTOM_ADMIN_KEY"
 }
 ```
 
 * "port" : is the port witch listen nodeJS for this application.
-* "upload_path" : is the path which is use to store upload files.
-* "deleted_path" : is the path which is use to store deleted files.
+* "upload_path" : is the path which is use to store upload files (need "/" at the end (linux) / need "\\" at the end (Windows)).
+* "deleted_path" : is the path which is use to store deleted files (need "/" at the end (linux) / need "\\" at the end (Windows)).
 * "application_name" : is the name of the application which is use by all pages of the application.
 * "admin_key" : is the key use to access to admin panel.
 
