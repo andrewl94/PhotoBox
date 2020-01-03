@@ -30,8 +30,8 @@ $(document).ready(function () {
             $('#input_container').show();
 
             $.alert({
-                title: 'L\'extension (*.' + extension + ') n\'est pas autorisée.',
-                content: 'Seules les extensions de fichier suivantes sont autorisées : <br/>' + extensionarray.join(', ') + '.',
+                title: 'Extension (*.' + extension + ') is not allowed.',
+                content: 'Only the following file extensions are allowed : <br/>' + extensionarray.join(', ') + '.',
                 type: "red",
                 boxWidth: ($(document).width() > 600 ? '60%' : '90%'),
                 useBootstrap: false,
@@ -80,8 +80,8 @@ $(document).ready(function () {
                 }
                 else{
                     $.alert({
-                        title: "Erreur",
-                        content: "Une erreur est survenue lors de l'envoie. Veuillez réessayer ultérieurement.",
+                        title: "Error",
+                        content: "An error occurred when sending it. Please try again later.",
                         type: "red",
                         boxWidth: ($(document).width() > 600 ? '60%' : '90%'),
                         useBootstrap: false,
@@ -93,8 +93,8 @@ $(document).ready(function () {
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 $.alert({
-                    title: "Erreur",
-                    content: "Une erreur est survenue lors de l'envoie. Veuillez réessayer ultérieurement.<br />" + XMLHttpRequest.responseText,
+                    title: "Error",
+                    content: "An error occurred when sending it. Please try again later.<br />" + XMLHttpRequest.responseText,
                     type: "red",
                     boxWidth: ($(document).width() > 600 ? '60%' : '90%'),
                     useBootstrap: false,

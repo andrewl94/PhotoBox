@@ -57,9 +57,9 @@ socket.on('upload_ok', function() {
 $(document).ready(function(){
     $('#admin_panel_container').hide();
     var confirm = $.confirm({
-        title: 'Clé d\'identification nécessaire',
+        title: 'Identification key required',
         content: '' +
-        '<label for="admin_key">Clé d\'administration :</label>' +
+        '<label for="admin_key">Admin key :</label>' +
         '<input id="admin_key" type="password" placeholder="" />' +
         '',
         type: 'red',
@@ -69,14 +69,14 @@ $(document).ready(function(){
         useBootstrap: false,
         scrollToPreviousElement: false,
         buttons: {
-            Valider: {
+            Confirm: {
                 btnClass: 'btn-red',
                 action: function () {
                     // Validation
                     if($('#admin_key').val().trim().length == 0){
                         $.alert({
-                            title: 'Clé d\'administration manquante',
-                            content: 'Veuillez saisir la clé d\'administration.',
+                            title: 'Missing Admin Key',
+                            content: 'Please enter the admin key.',
                             type: 'red',
                             boxWidth: ($(document).width() > 600 ? '60%' : '90%'),
                             useBootstrap: false,
@@ -99,8 +99,8 @@ $(document).ready(function(){
                             }
                             else{
                                 $.alert({
-                                    title: 'Clé d\'administration invalide',
-                                    content: 'Veuillez saisir la clé d\'administration valide.',
+                                    title: 'Invalid admin key',
+                                    content: 'Please enter the valid admin key.',
                                     type: 'red',
                                     boxWidth: ($(document).width() > 600 ? '60%' : '90%'),
                                     useBootstrap: false,
@@ -109,8 +109,8 @@ $(document).ready(function(){
                         },
                         error: function (XMLHttpRequest, textStatus, errorThrown) {
                             $.alert({
-                                title: 'Erreur',
-                                content: 'Une erreur est survenu, veuillez réessayer ultérieurement.<br />' + XMLHttpRequest.responseText,
+                                title: 'Error',
+                                content: 'An error has occurred, please try again later.<br />' + XMLHttpRequest.responseText,
                                 type: 'red',
                                 boxWidth: ($(document).width() > 600 ? '60%' : '90%'),
                                 useBootstrap: false,
@@ -139,12 +139,12 @@ function getAllImages(){
                     html += "<div class=\"img_container\">";
                     html += "<img src=\"" + file.data + "\" />";
                     html += "<p>" + file.name + "</p>";
-                    html += '<button class="btn btn-danger" onclick="toggleFile(\''+ file.name +'\', true)"><i class="fas fa-ban"></i> Supprimer du diapo</button>';
+                    html += '<button class="btn btn-danger" onclick="toggleFile(\''+ file.name +'\', true)"><i class="fas fa-ban"></i> Delete from the slideshow</button>';
                     html += "</div>";
                 });
             }
             else{
-                html = "Aucune image pour le moment..."
+                html = "No images for the moment..."
             }
             $('#file_container').html(html);
         },
@@ -169,12 +169,12 @@ function getDeletedImages(){
                     html += "<div class=\"img_container\">";
                     html += "<img src=\"" + file.data + "\" />";
                     html += "<p>" + file.name + "</p>";
-                    html += '<button class="btn btn-success" onclick="toggleFile(\''+ file.name +'\', false)"><i class="fas fa-plus"></i> Ajouter au diapo</button>';
+                    html += '<button class="btn btn-success" onclick="toggleFile(\''+ file.name +'\', false)"><i class="fas fa-plus"></i> Add to slideshow</button>';
                     html += "</div>";
                 });
             }
             else{
-                html = "Aucune image pour le moment..."
+                html = "No images for the moment..."
             }
             $('#file_delete_container').html(html);
         },

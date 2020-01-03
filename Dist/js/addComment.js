@@ -41,8 +41,8 @@ function validation(){
     if($('#pseudo').val().trim().length == 0 || $('#comment').val().trim().length == 0){
         isValid = false;
         $.alert({
-            title: 'Formulaire incomplet',
-            content: 'Veuillez renseigner tous les champs obligatoire.',
+            title: 'Incomplete form',
+            content: 'Please complete all mandatory fields.',
             type: "red",
             boxWidth: ($(document).width() > 600 ? '60%' : '90%'),
             useBootstrap: false,
